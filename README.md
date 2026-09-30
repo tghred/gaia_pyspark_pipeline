@@ -33,6 +33,8 @@ gaia_pyspark_pipeline/
 ├── config/                   # Configuration files
 ├── examples/
 │   └── run_pipeline.py       # Main execution entry point
+|    | demo_pleiades.ipynb      #demo shows the pipeline process and plots results 
+
 ├── gaia_pipeline/
 │   ├── __init__.py
 │   ├── clustering.py         # DBSCAN ML model & astrophysical plots (VPD, CMD)
