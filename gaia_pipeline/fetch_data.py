@@ -1,8 +1,8 @@
 from astroquery.gaia import Gaia
 
 def fetch_cluster_data(
-        ra_center = 56.75, dec_center = 24.12, radius_deg=1.0, limit=2000
-        ):
+        ra_center = 56.75, dec_center = 24.12, radius_deg=1.0, limit=2000,
+       output_file="raw_gaia_data.parquet" ):
     """ Fetch raw data from Gaia DR3 archive and save as Parquet file"""
     query = f"""
     SELECT TOP {limit}
@@ -28,7 +28,7 @@ ORDER BY phot_g_mean_mag ASC
     results= job.get_results()
     
     df_raw = results.to_pandas()
-    df_raw.to_parquet("raw_gaia_data.parquet", index= False)
+    df_raw.to_parquet(output_file, index=False) 
     print("Raw data successfully fetched and saved to raw_gaia_data.parquet")
     
     
