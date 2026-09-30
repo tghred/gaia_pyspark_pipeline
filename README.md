@@ -1,5 +1,5 @@
 
-# 🌌 Gaia DR3 Stellar Cluster Analytics Pipeline
+#  Gaia DR3 Stellar Cluster Analytics Pipeline
 
 An end-to-end Big Data & Machine Learning pipeline designed to query, clean, and cluster astronomical data from the **Gaia DR3** archive using **PySpark** and **DBSCAN**. The pipeline isolates open stellar clusters (such as the Pleiades / M45) using kinematic and photometric parameters.
 
