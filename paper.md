@@ -38,7 +38,8 @@ The software architecture is divided into three modular components:
 2. **Distributed Data Cleaning (`spark_cleaner.py`):** Initializes a PySpark environment to clean raw Parquet files in memory. It filters out unphysical negative parallaxes, missing values, and corrupted photometric records. It includes an automated benchmarking sub-module (`benchmark_pyspark_performance`) that measures cleaning time scalability across subsampled fractions.
 3. **Kinematic Clustering & Validation (`clustering.py`):** Executes DBSCAN clustering [@dbscan; @scikit-learn] on the proper motion vector space ($\mu_{\alpha}^*$, $\mu_{\delta}$) to separate candidate cluster members from field noise. It automatically generates publication-ready Vector Point Diagrams (VPD) and Color-Magnitude Diagrams (CMD) for physical validation.
 
-![Vector Point Diagram (VPD) and Color-Magnitude Diagram (CMD) generated for the Pleiades (M45) open cluster.\label{fig:cluster}](pleiades_cluster_plot.png)
+![Pleiades Color-Magnitude Diagram](examples/pleiades_cluster_plot.png)
+
 
 # Demonstration & Scientific Verification
 
@@ -50,8 +51,3 @@ As shown in \autoref{fig:cluster}, the pipeline successfully isolated the Pleiad
 
 We acknowledge the use of data from the European Space Agency (ESA) mission Gaia, processed by the Gaia Data Processing and Analysis Consortium (DPAC).
 
-=======
-![Pleiades Color-Magnitude Diagram](examples/pleiades_cluster_plot.png)
-# Acknowledgements
-We acknowledge the use of data from the European Space Agency (ESA) mission Gaia.
->>>>>>> ec81cc892058d0965ebceba06fb013a7aa8a4084
