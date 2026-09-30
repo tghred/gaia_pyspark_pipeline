@@ -8,7 +8,7 @@ tags:
   - Astroinformatics
 authors:
   - name: Taghred Salah Ashry
-    orcid: 0000-000x-xxxx-xxxx # ضعي رقم ORCID الخاص بكِ هنا
+    orcid: 0009-0006-0161-2043
     affiliation: 1
 affiliations:
  - name: Independent Researcher
