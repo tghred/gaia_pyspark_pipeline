@@ -33,7 +33,7 @@ gaia_pyspark_pipeline/
 ├── config/                   # Configuration files
 ├── examples/
 │   └── run_pipeline.py       # Main execution entry point
-|    | demo_pleiades.ipynb      #demo shows the pipeline process and plots results 
+|    | demo_pleiades.ipynb      #demonstrates the end-to-end workflow of gaia_pyspark_pipeline 
 
 ├── gaia_pipeline/
 │   ├── __init__.py
