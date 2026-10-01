@@ -43,7 +43,6 @@ def benchmark_pyspark_performance(df_spark, output_image="pyspark_performance.pn
     Measures PySpark data cleaning execution time across different dataset sizes
     and generates a performance scalability graph.
     """
-    # أحجام عينات مختلفة لقياس الأداء (20%, 40%, 60%, 80%, 100%)
     fractions = [0.2, 0.4, 0.6, 0.8, 1.0]
     execution_times = []
     record_counts = []
@@ -71,7 +70,6 @@ def benchmark_pyspark_performance(df_spark, output_image="pyspark_performance.pn
         "Execution Time (s)": execution_times
     })
 
-    # رسم مخطط الأداء
     plt.figure(figsize=(9, 5))
     sns.set_theme(style="ticks")
     
@@ -95,6 +93,6 @@ def benchmark_pyspark_performance(df_spark, output_image="pyspark_performance.pn
     plt.tight_layout()
     if output_image:
         plt.savefig(output_image, dpi=300, bbox_inches='tight')
-        print(f"📊 PySpark Performance graph saved to '{output_image}'")
+        print(f"PySpark Performance graph saved to '{output_image}'")
         
     plt.show()

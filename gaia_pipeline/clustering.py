@@ -6,27 +6,23 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 
-def run_dbscan_clustering(
-        df_spark, 
-        features = ["parallax","pmra","pmdec"],
-        eps=0.3,
-        min_samples=10
-        ):
+def run_dbscan_clustering(df_spark, features=["parallax", "pmra", "pmdec"], eps=0.3, min_samples=10):
+    """Converts PySpark DataFrame or Numpy Array, applies scaling, and runs DBSCAN."""
     
-    """Converts PySpark DataFrame to Numpy, Applies scaling, and runs DBSCAN"""
-    
-    pdf = df_spark.select(features + ["bp_rp", "phot_g_mean_mag"]).toPandas()
-    X = pdf[features].to_numpy()
-    
+    if isinstance(df_spark, np.ndarray):
+        X = df_spark
+    else:
+        pdf = df_spark.select(features).toPandas()
+        X = pdf[features].values
+        
+    #  (Standardization)
     scaler = StandardScaler()
     X_scaled = scaler.fit_transform(X)
     
+    dbscan = DBSCAN(eps=eps, min_samples=min_samples)
+    labels = dbscan.fit_predict(X_scaled)
     
-    db= DBSCAN(eps=eps, min_samples=min_samples)
-    labels = db.fit_predict(X_scaled)
-    
-    pdf["cluster_label"] = labels
-    return pdf
+    return labels
 
 
 def plot_cluster_results(pdf, output_image="cluster_plots.png"):
@@ -36,7 +32,6 @@ def plot_cluster_results(pdf, output_image="cluster_plots.png"):
     """
     plt.figure(figsize=(13, 5))
     
-    # تحسين مظهر الرسم
     sns.set_theme(style="ticks")
     
     # 1. Vector Point Diagram (VPD)
@@ -69,6 +64,6 @@ def plot_cluster_results(pdf, output_image="cluster_plots.png"):
     
     if output_image:
         plt.savefig(output_image, dpi=300, bbox_inches='tight')
-        print(f"📊 Visualization saved successfully to '{output_image}'")
+        print(f" Visualization saved successfully to '{output_image}'")
         
     plt.show()

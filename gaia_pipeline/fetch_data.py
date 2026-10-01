@@ -35,5 +35,3 @@ ORDER BY phot_g_mean_mag ASC
     
 
 
-if __name__ == "__main__":
-       fetch_cluster_data()
