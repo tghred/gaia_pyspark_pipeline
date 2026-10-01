@@ -71,7 +71,7 @@ def benchmark_pyspark_performance(df_spark, output_image="pyspark_performance.pn
         "Execution Time (s)": execution_times
     })
 
-    # رسم مخطط الأداء
+     
     plt.figure(figsize=(9, 5))
     sns.set_theme(style="ticks")
     
@@ -95,6 +95,6 @@ def benchmark_pyspark_performance(df_spark, output_image="pyspark_performance.pn
     plt.tight_layout()
     if output_image:
         plt.savefig(output_image, dpi=300, bbox_inches='tight')
-        print(f"📊 PySpark Performance graph saved to '{output_image}'")
+        print(f"PySpark Performance graph saved to '{output_image}'")
         
     plt.show()
