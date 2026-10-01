@@ -36,10 +36,10 @@ def plot_cluster_results(pdf, output_image="cluster_plots.png"):
     """
     plt.figure(figsize=(13, 5))
     
-    # تحسين مظهر الرسم
+    
     sns.set_theme(style="ticks")
     
-    # 1. Vector Point Diagram (VPD)
+    # Vector Point Diagram (VPD)
     plt.subplot(1, 2, 1)
     sns.scatterplot(
         data=pdf, x="pmra", y="pmdec", 
@@ -51,7 +51,7 @@ def plot_cluster_results(pdf, output_image="cluster_plots.png"):
     plt.ylabel("pmdec (mas/yr)")
     plt.grid(True, linestyle="--", alpha=0.5)
 
-    # 2. Color-Magnitude Diagram (CMD)
+    #Color-Magnitude Diagram (CMD)
     plt.subplot(1, 2, 2)
     sns.scatterplot(
         data=pdf, x="bp_rp", y="phot_g_mean_mag", 
@@ -69,6 +69,6 @@ def plot_cluster_results(pdf, output_image="cluster_plots.png"):
     
     if output_image:
         plt.savefig(output_image, dpi=300, bbox_inches='tight')
-        print(f"📊 Visualization saved successfully to '{output_image}'")
+        print(f"Visualization saved successfully to '{output_image}'")
         
     plt.show()
