@@ -32,10 +32,7 @@ def plot_cluster_results(pdf, output_image="cluster_plots.png"):
     """
     plt.figure(figsize=(13, 5))
     
-<<<<<<< HEAD
-=======
-    
->>>>>>> 79336d5a1d6c814454824a160d7d99a849f6e104
+
     sns.set_theme(style="ticks")
     
     # Vector Point Diagram (VPD)
@@ -68,10 +65,9 @@ def plot_cluster_results(pdf, output_image="cluster_plots.png"):
     
     if output_image:
         plt.savefig(output_image, dpi=300, bbox_inches='tight')
-<<<<<<< HEAD
+ 
         print(f" Visualization saved successfully to '{output_image}'")
-=======
+
         print(f"Visualization saved successfully to '{output_image}'")
->>>>>>> 79336d5a1d6c814454824a160d7d99a849f6e104
         
     plt.show()

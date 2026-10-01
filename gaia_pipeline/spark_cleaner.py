@@ -70,10 +70,7 @@ def benchmark_pyspark_performance(df_spark, output_image="pyspark_performance.pn
         "Execution Time (s)": execution_times
     })
 
-<<<<<<< HEAD
-=======
-     
->>>>>>> 79336d5a1d6c814454824a160d7d99a849f6e104
+
     plt.figure(figsize=(9, 5))
     sns.set_theme(style="ticks")
     
