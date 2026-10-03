@@ -17,23 +17,22 @@ def init_spark():
         )
 
 def clean_gaia_pyspark(input_file, output_file=None, spark=None):
-    """
-    Reads parquet data using PySpark, performs quality filtering, 
+    """Reads parquet data using PySpark, performs quality filtering,
     and optionally saves the cleaned dataset.
     """
     if spark is None:
         spark = SparkSession.builder \
             .appName("GaiaDataCleaner") \
             .getOrCreate()
-    
+            
     df_spark = spark.read.parquet(input_file)
     
     df_cleaned = df_spark.dropna(
         subset=["parallax", "pmra", "pmdec", "bp_rp", "phot_g_mean_mag"]
     ).filter((col("parallax") > 0) & (col("phot_g_mean_mag") > 0))
     
-    if output_file:
-        df_cleaned.toPandas().to_parquet(output_file, index= False)
+    if output_file and isinstance(output_file, str):
+        df_cleaned.toPandas().to_parquet(output_file, index=False)
         
     return df_cleaned
 
