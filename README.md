@@ -94,7 +94,7 @@ To run this pipeline smoothly, you have two options:
 
 ### Option 1: Google Colab (Recommended)
 No local installation required! You can run the entire pipeline directly in your browser using Google Colab:
-* [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](ضع_رابط_النوت_بوك_هنا)
+* [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1KwdEmspD2FVCqVcbpYV4rNgSqfT4WSUT?usp=sharing)
 
 ### Option 2: Local Environment 
 If you prefer running it locally, ensure you have the following installed:
