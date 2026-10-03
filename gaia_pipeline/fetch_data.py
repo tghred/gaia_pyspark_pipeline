@@ -43,7 +43,6 @@ def fetch_cluster_data(ra, dec, radius, limit= 30000):
     print(f"Chunk saved. Rows in this chunk: {len(df_chunk)}")
     time.sleep(2)
 
-  # طباعة الحجم الإجمالي للتأكد من ضخامة البيانات
   final_table = pq.read_table(output_file)
   print(
       f"=== Total Massive Dataset Ready! Total Rows: {len(final_table):,}"

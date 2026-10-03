@@ -87,6 +87,25 @@ pytest tests/
 
 ---
 
+
+## 5. Prerequisites 
+
+To run this pipeline smoothly, you have two options:
+
+### Option 1: Google Colab (Recommended)
+No local installation required! You can run the entire pipeline directly in your browser using Google Colab:
+* [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](ضع_رابط_النوت_بوك_هنا)
+
+### Option 2: Local Environment 
+If you prefer running it locally, ensure you have the following installed:
+* **Python** (version 3.8 or higher)
+* **Java (JDK)** (version 8 or 11 required for PySpark, with `JAVA_HOME` properly configured)
+* **Apache Spark / PySpark**
+
+### Installation via pip:
+pip install -r requirements.txt
+
+
 ## 📊 Scientific & Performance Visualizations
 
 ### 1. Kinematic & Photometric Verification
