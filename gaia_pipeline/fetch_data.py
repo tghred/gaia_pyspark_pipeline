@@ -1,37 +1,51 @@
+import time
 from astroquery.gaia import Gaia
-
-def fetch_cluster_data(
-        ra_center = 56.75, dec_center = 24.12, radius_deg=1.0, limit=2000,
-       output_file="raw_gaia_data.parquet" ):
-    """ Fetch raw data from Gaia DR3 archive and save as Parquet file"""
-    query = f"""
-    SELECT TOP {limit}
-        source_id, ra, dec, parallax, pmra, pmdec, phot_g_mean_mag, bp_rp, parallax_error
-FROM gaiadr3.gaia_source
-WHERE 1 = CONTAINS(
-  POINT('ICRS', ra, dec),
-  CIRCLE('ICRS', {ra_center}, {dec_center}, {radius_deg}) 
-)
-AND parallax > 0
-AND (parallax_error / parallax) < 0.2
-ORDER BY phot_g_mean_mag ASC 
-"""
-
-#POINT(‘ICRS’, 56.75, 24.12, 3.0)  -- Center of the Pleiades with a radius of 3 degrees
-
-#AND parallax > 0 -- Positive angle to exclude distorted negative values
-
-#AND parallax_error / parallax < 0.2  -- The measurement error does not exceed 20% of the parallax value itself (signal-to-noise ratio SNR > 5)
-
-#ORDER BY phot_g_mag ASC   Retrieve the first 2,000 brightest stars first
-    job = Gaia.launch_job(query)
-    results= job.get_results()
-    
-    df_raw = results.to_pandas()
-    df_raw.to_parquet(output_file, index=False) 
-    print("Raw data successfully fetched and saved to raw_gaia_data.parquet")
-    
-    
-    
+import pandas as pd
+import pyarrow as pa
+import pyarrow.parquet as pq
 
 
+def fetch_cluster_data(ra, dec, radius, limit= 30000):
+  mag_bins = [
+      (10.0, 16.0),
+      (16.0, 18.5),
+      (18.5, 20.5),]
+  output_file = "massive_orion_chunks.parquet"
+  first_chunk = True
+
+  for min_mag, max_mag in mag_bins:
+    print(
+        f"Fetching massive chunk: Magnitude between {min_mag} and {max_mag}..."
+    )
+
+    adql_query = f"""
+            SELECT TOP {limit} source_id, ra, dec, parallax, pmra, pmdec, bp_rp, phot_g_mean_mag
+            FROM gaiadr3.gaia_source
+            WHERE CONTAINS(POINT('ICRS', gaiadr3.gaia_source.ra, gaiadr3.gaia_source.dec), 
+                           CIRCLE('ICRS', {ra}, {dec}, {radius})) = 1
+            AND phot_g_mean_mag BETWEEN {min_mag} AND {max_mag}
+        """
+
+    job = Gaia.launch_job_async(adql_query)
+    r = job.get_results()
+    df_chunk = r.to_pandas()
+
+    if not df_chunk.empty:
+      table = pa.Table.from_pandas(df_chunk)
+      if first_chunk:
+        pq.write_table(table, output_file)
+        first_chunk = False
+      else:
+        existing_table = pq.read_table(output_file)
+        combined_table = pa.concat_tables([existing_table, table])
+        pq.write_table(combined_table, output_file)
+
+    print(f"Chunk saved. Rows in this chunk: {len(df_chunk)}")
+    time.sleep(2)
+
+  # طباعة الحجم الإجمالي للتأكد من ضخامة البيانات
+  final_table = pq.read_table(output_file)
+  print(
+      f"=== Total Massive Dataset Ready! Total Rows: {len(final_table):,}"
+      " ==="
+  )

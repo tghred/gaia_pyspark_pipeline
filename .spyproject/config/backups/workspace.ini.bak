@@ -4,7 +4,7 @@ save_data_on_exit = True
 save_history = True
 save_non_project_files = False
 project_type = 'empty-project-type'
-recent_files = ['paper.bib']
+recent_files = ['paper.bib', 'examples\\run_pipeline.py', 'gaia_pipeline\\clustering.py', 'gaia_pipeline\\spark_cleaner.py', 'gaia_pipeline\\fetch_data.py']
 
 [main]
 version = 0.2.0
