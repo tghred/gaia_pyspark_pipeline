@@ -12,8 +12,7 @@ if __name__ == "__main__":
   print("=== Starting Gaia PySpark Pipeline (Big Data Mode) ===")
 
   print(
-      "[1/3] Fetching massive stellar data in chunks from Gaia DR3 (Galactic"
-      " Center)..."
+      "[1/3] Fetching massive stellar data in chunks from Gaia DR3 (Orion Chunks)..."
   )
   ra_target = 83.82
   dec_target = -5.39

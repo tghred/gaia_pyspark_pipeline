@@ -5,7 +5,7 @@ import pyarrow as pa
 import pyarrow.parquet as pq
 
 
-def fetch_cluster_data(ra, dec, radius, limit= 30000):
+def fetch_cluster_data(ra, dec, radius, limit= 20000):
   mag_bins = [
       (10.0, 16.0),
       (16.0, 18.5),

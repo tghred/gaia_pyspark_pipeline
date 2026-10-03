@@ -33,56 +33,33 @@ def run_dbscan_clustering(
 
     return pdf
 
-
 def plot_cluster_results(pdf, output_image="cluster_plots.png"):
-    """Generates and saves Vector Point Diagram (VPD) and
-
-    Color-Magnitude Diagram (CMD) for DBSCAN clusters.
-    """
-    sns.set_theme(style="ticks")
+    # تحويل الأرقام إلى نصوص لضمان ظهور مفتاح الألوان تلقائياً
+    pdf = pdf.copy()
+    pdf['cluster_Label'] = pdf['cluster_Label'].astype(str)
+    
     fig, axes = plt.subplots(1, 2, figsize=(14, 6))
 
     # 1. Vector Point Diagram (VPD)
-    if "pmra" in pdf.columns and "pmdec" in pdf.columns:
-        sns.scatterplot(
-            data=pdf,
-            x="pmra",
-            y="pmdec",
-            hue="cluster_Label",
-            palette="tab10",
-            ax=axes[0],
-            s=10,
-            alpha=0.7,
-            legend=False,
-        )
-        axes[0].set_title("Vector Point Diagram (VPD)", fontsize=12, fontweight='bold')
-        axes[0].set_xlabel("Proper Motion RA (pmra)")
-        axes[0].set_ylabel("Proper Motion Dec (pmdec)")
-        axes[0].grid(True, linestyle="--", alpha=0.5)
+    sns.scatterplot(
+        data=pdf, x="pmra", y="pmdec", 
+        hue="cluster_Label", palette="tab10", 
+        ax=axes[0], s=10, alpha=0.7
+    )
+    axes[0].set_title("Vector Point Diagram (VPD)")
+    axes[0].legend(title="Clusters", loc="upper right") # إظهار الـ Legend صراحة
 
     # 2. Color-Magnitude Diagram (CMD)
-    if "bp_rp" in pdf.columns and "phot_g_mean_mag" in pdf.columns:
-        sns.scatterplot(
-            data=pdf,
-            x="bp_rp",
-            y="phot_g_mean_mag",
-            hue="cluster_Label",
-            palette="tab10",
-            ax=axes[1],
-            s=10,
-            alpha=0.7,
-            legend=False,
-        )
-        axes[1].set_title("Color-Magnitude Diagram (CMD)", fontsize=12, fontweight='bold')
-        axes[1].set_xlabel("BP - RP (Color Index)")
-        axes[1].set_ylabel("G (Apparent Magnitude)")
-        axes[1].invert_yaxis()  # عكس محور Y كما هو معتاد في الـ CMD
-        axes[1].grid(True, linestyle="--", alpha=0.5)
+    sns.scatterplot(
+        data=pdf, x="bp_rp", y="phot_g_mean_mag", 
+        hue="cluster_Label", palette="tab10", 
+        ax=axes[1], s=10, alpha=0.7, 
+        legend=False # إخفاء التكرار في الرسم الثاني
+    )
+    axes[1].set_title("Color-Magnitude Diagram (CMD)")
+    axes[1].invert_yaxis()
 
     plt.tight_layout()
-    
-    if output_image:
-        plt.savefig(output_image, dpi=300, bbox_inches='tight')
-        print(f"Visualization saved successfully to '{output_image}'")
-        
+    plt.savefig(output_image, dpi=300)
+    plt.show()
     plt.close()
