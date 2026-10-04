@@ -10,7 +10,7 @@ tags:
   - Stellar Clusters
 authors:
   - name: Taghred Salah Ashry
-    orcid: 0009-0000-0000-0000
+    orcid: 0009-0006-0161-2043
     affiliation: 1
 affiliations:
  - name: Independent Researcher / Data Engineer, Egypt
