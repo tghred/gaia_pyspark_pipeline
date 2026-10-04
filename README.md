@@ -120,6 +120,11 @@ The pipeline generates a double-plot verifying the cluster's **Dynamic Consisten
 
 Measures PySpark data cleaning execution time across different subsample ratios:
 
+## Visualizing Results in Aladin Desktop
+Here is the processed Pleiades cluster dataset visualized over the real sky background using Aladin:
+
+![Pleiades Cluster Aladin Visualization](images_results/aladin_pleiades.png)
+
 ---
 
 ## 📝 License
