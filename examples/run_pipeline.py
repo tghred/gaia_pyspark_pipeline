@@ -12,14 +12,14 @@ if __name__ == "__main__":
   print("=== Starting Gaia PySpark Pipeline (Big Data Mode) ===")
 
   print(
-      "[1/3] Fetching massive stellar data in chunks from Gaia DR3 (Orion Chunks)..."
+      "[1/3] Fetching stellar data in chunks from Gaia DR3 (pleiades Chunks)..."
   )
-  ra_target = 83.82
-  dec_target = -5.39
-  radius_target = 1.5
+  ra_target = 56.75
+  dec_target = 24.11
+  radius_target = 1.0
 
-  fetch_cluster_data(ra=ra_target, dec=ra_target, radius=radius_target)
-  input_parquet = "orion_chunks.parquet"
+  fetch_cluster_data(ra=ra_target, dec=dec_target, radius=radius_target)
+  input_parquet = "pleiades_chunks.parquet"
 
   print("[2/3] Processing Big Data with PySpark...")
   cleaned_spark_df = clean_gaia_pyspark(input_parquet)
@@ -41,7 +41,7 @@ if __name__ == "__main__":
   )
 
   plot_cluster_results(
-      clustered_pd_df, output_image="orion_nebula_clusters.png"
+      clustered_pd_df, output_image="pleiades_clusters.png"
   )
   print(
       "=== Pipeline Completed Successfully! Results saved to"

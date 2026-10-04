@@ -34,7 +34,6 @@ def run_dbscan_clustering(
     return pdf
 
 def plot_cluster_results(pdf, output_image="cluster_plots.png"):
-    # تحويل الأرقام إلى نصوص لضمان ظهور مفتاح الألوان تلقائياً
     pdf = pdf.copy()
     pdf['cluster_Label'] = pdf['cluster_Label'].astype(str)
     
@@ -47,14 +46,14 @@ def plot_cluster_results(pdf, output_image="cluster_plots.png"):
         ax=axes[0], s=10, alpha=0.7
     )
     axes[0].set_title("Vector Point Diagram (VPD)")
-    axes[0].legend(title="Clusters", loc="upper right") # إظهار الـ Legend صراحة
+    axes[0].legend(title="Clusters", loc="upper right") 
 
     # 2. Color-Magnitude Diagram (CMD)
     sns.scatterplot(
         data=pdf, x="bp_rp", y="phot_g_mean_mag", 
         hue="cluster_Label", palette="tab10", 
         ax=axes[1], s=10, alpha=0.7, 
-        legend=False # إخفاء التكرار في الرسم الثاني
+        legend=False
     )
     axes[1].set_title("Color-Magnitude Diagram (CMD)")
     axes[1].invert_yaxis()
