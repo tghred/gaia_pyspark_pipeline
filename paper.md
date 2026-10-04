@@ -27,7 +27,7 @@ bibliography: paper.bib
 
 The Gaia DR3 archive contains high-precision astrometric and photometric parameters for over 1.8 billion celestial sources [@GaiaDR3]. As observational datasets expand into the multi-terabyte regime, traditional single-node analysis workflows built on standard Python data structures encounter significant CPU and RAM execution bottlenecks during pre-processing and quality filtering. Furthermore, researchers frequently construct ad-hoc, unstandardized scripts to bridge data retrieval, distributed cleaning, and machine learning models.
 
-<<<<<<< HEAD
+
 `gaia_pyspark_pipeline` addresses this gap by offering a modular, fully reproducible, and unified workflow. It abstracts the complexities of PySpark distributed DataFrame transformations while providing astrometrically rigorous filtering criteria. The tool allows observational astronomers and data engineers to isolate dynamically coherent stellar groups from foreground and background field star noise efficiently, maintaining sub-second execution scalability on local multi-core machines and distributed Spark clusters.
 
 # Pipeline Architecture & Core Modules

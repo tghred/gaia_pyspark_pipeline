@@ -111,14 +111,21 @@ pip install -r requirements.txt
 
 ### 1. Kinematic & Photometric Verification
 
-The pipeline generates a double-plot verifying the cluster's **Dynamic Consistency** (VPD) and **Physical Consistency** (CMD):
 
-* **Vector Point Diagram (VPD):** Isolates the Pleiades cluster movement ($pmra \approx 20$, $pmdec \approx -45$ mas/yr) from background stars.
 * **Color-Magnitude Diagram (CMD):** Confirms the identified members form a clear **Main Sequence** evolutionary track.
+* **Visual Validation:** Verified spatial distribution of Pleiades cluster members using Aladin Desktop.
+* **Performance Benchmark:** Measures PySpark data cleaning execution time across different subsample ratios.
+![Kinematic & Photometric Verification](examples/pleiades_cluster_plot.png)
+
 
 ### 2. PySpark Scalability Benchmark
 
+## 📊 Performance Benchmark
+
 Measures PySpark data cleaning execution time across different subsample ratios:
+
+![PySpark Execution Time Benchmark](examples/pyspark_performance.png)
+
 
 ## Visualizing Results in Aladin Desktop
 Here is the processed Pleiades cluster dataset visualized over the real sky background using Aladin:
