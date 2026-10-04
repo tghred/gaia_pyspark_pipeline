@@ -33,7 +33,7 @@ gaia_pyspark_pipeline/
 ├── config/                   # Configuration files
 ├── examples/
 │   └── run_pipeline.py       # Main execution entry point
-|    | demo_pleiades.ipynb      #demonstrates the end-to-end workflow of gaia_pyspark_pipeline 
+|   └── demo.ipynb      #demonstrates the end-to-end workflow of gaia_pyspark_pipeline 
 
 ├── gaia_pipeline/
 │   ├── __init__.py
@@ -49,7 +49,7 @@ gaia_pyspark_pipeline/
 ├── paper.md                  # JOSS paper manuscript
 ├── README.md                 # Project documentation
 └── requirements.txt          # Project dependencies
-
+└── CONTRIBUTING.md           # Contributing to gaia_pyspark_pipeline
 ```
 
 ---
