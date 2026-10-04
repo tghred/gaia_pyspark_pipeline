@@ -42,6 +42,10 @@ gaia_pyspark_pipeline/
 │   └── spark_cleaner.py      # PySpark pipeline for data cleaning & benchmarking
 ├── tests/
 │   └── test_pipeline.py      # Unit tests for pipeline components
+
+├── docs/                 # Documentation files
+│   └── index.md
+
 ├── .gitattributes
 ├── LICENSE                   # Project license
 ├── paper.bib                 # Bibliography for academic paper
@@ -133,6 +137,14 @@ Here is the processed Pleiades cluster dataset visualized over the real sky back
 
 ---
 
+## 📖 Documentation
+Detailed documentation for each component of the pipeline is available in the [docs/](docs/) directory:
+* [Fetch Data](docs/fetch_data.md) - Queries Gaia DR3 using ADQL.
+* [Spark Cleaner](docs/spark_cleaner.md) - PySpark data cleaning pipeline.
+* [Clustering](docs/clustering.md) - DBSCAN machine learning & astrophysical plots.
+* [Demo Workflow](docs/demo.md) - End-to-end execution guide.
+
+  
 ## 📝 License
 
 This project is licensed under the MIT License - see the [LICENSE](https://github.com/tghred/gaia_pyspark_pipeline/blob/main/LICENSE) file for details.
