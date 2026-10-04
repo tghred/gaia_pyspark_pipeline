@@ -30,7 +30,6 @@ An end-to-end Big Data & Machine Learning pipeline designed to query, clean, and
 
 ```text
 gaia_pyspark_pipeline/
-├── config/                   # Configuration files
 ├── examples/
 │   └── run_pipeline.py       # Main execution entry point
 |   └── demo.ipynb      #demonstrates the end-to-end workflow of gaia_pyspark_pipeline 
