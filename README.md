@@ -115,7 +115,7 @@ pip install -r requirements.txt
 * **Color-Magnitude Diagram (CMD):** Confirms the identified members form a clear **Main Sequence** evolutionary track.
 * **Visual Validation:** Verified spatial distribution of Pleiades cluster members using Aladin Desktop.
 * **Performance Benchmark:** Measures PySpark data cleaning execution time across different subsample ratios.
-![Kinematic & Photometric Verification](examples/pleiades_cluster_plot.png)
+![Kinematic & Photometric Verification](images_results/pleiades_cluster_plot.png)
 
 
 ### 2. PySpark Scalability Benchmark
@@ -124,7 +124,7 @@ pip install -r requirements.txt
 
 Measures PySpark data cleaning execution time across different subsample ratios:
 
-![PySpark Execution Time Benchmark](examples/pyspark_performance.png)
+![PySpark Execution Time Benchmark](images_results/pyspark_performance.png)
 
 
 ## Visualizing Results in Aladin Desktop
