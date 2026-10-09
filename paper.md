@@ -51,3 +51,8 @@ As shown in \autoref{fig:cluster}, the pipeline successfully isolated the Pleiad
 
 We acknowledge the use of data from the European Space Agency (ESA) mission Gaia, processed by the Gaia Data Processing and Analysis Consortium (DPAC).
 
+
+# References
+
+Data extraction was automated using astroquery [cite of astropy/astroquery](https://astroquery.readthedocs.io/en/latest/), data cleaning and scalability benchmarking were performed via distributed computing using `PySpark` [cite of Spark paper](https://dl.acm.org/doi/fullHtml/10.1145/2934664), and kinematic clustering was executed using the DBSCAN algorithm [original DBSCAN paper](https://dl.acm.org/doi/10.5555/3001460.3001507) via `scikit-learn`.
+ent}
