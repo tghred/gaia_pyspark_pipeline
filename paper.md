@@ -54,5 +54,4 @@ We acknowledge the use of data from the European Space Agency (ESA) mission Gaia
 
 # References
 
-Data extraction was automated using astroquery [cite of astropy/astroquery](https://astroquery.readthedocs.io/en/latest/), data cleaning and scalability benchmarking were performed via distributed computing using `PySpark` [cite of Spark paper](https://dl.acm.org/doi/fullHtml/10.1145/2934664), and kinematic clustering was executed using the DBSCAN algorithm [original DBSCAN paper](https://dl.acm.org/doi/10.5555/3001460.3001507) via `scikit-learn`.
-ent}
+Data extraction was automated using `astroquery` ([astropy/astroquery](https://astroquery.readthedocs.io/en/latest/)). Data cleaning and scalability benchmarking were performed via distributed computing using `PySpark` ([Apache Spark Paper](https://dl.acm.org/doi/fullHtml/10.1145/2934664)). Kinematic clustering was executed using the DBSCAN algorithm ([Original DBSCAN Paper](https://dl.acm.org/doi/10.5555/3001460.3001507)) via `scikit-learn`.
