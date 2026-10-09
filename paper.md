@@ -21,15 +21,11 @@ bibliography: paper.bib
 
 # Summary
 
-`gaia_pyspark_pipeline` is an open-source Python package engineered for high-throughput data retrieval, distributed data cleaning, and kinematic clustering of astronomical sources from the European Space Agency's (ESA) Gaia Data Release 3 (DR3) catalog. By unifying `astroquery` for automated ADQL queries, `PySpark` for distributed memory transformations and performance benchmarking, and `scikit-learn` for density-based spatial clustering (DBSCAN), the package enables rapid identification and verification of open stellar clusters.
+`gaia_pyspark_pipeline` is a Python software package that combines the benefits of PySpark parallel processing to efficiently analyze Gaia DR3 big data, while utilizing machine learning libraries from Scikit-Learn and the DBSCAN algorithm to identify and analyze stellar clusters (such as Orion and the Pleiades). Benchmarking results demonstrate high scalability and efficiency across massive astronomical datasets.
 
 # Statement of Need
-
-The Gaia DR3 archive contains high-precision astrometric and photometric parameters for over 1.8 billion celestial sources [@GaiaDR3]. As observational datasets expand into the multi-terabyte regime, traditional single-node analysis workflows built on standard Python data structures encounter significant CPU and RAM execution bottlenecks during pre-processing and quality filtering. Furthermore, researchers frequently construct ad-hoc, unstandardized scripts to bridge data retrieval, distributed cleaning, and machine learning models.
-
-
-`gaia_pyspark_pipeline` addresses this gap by offering a modular, fully reproducible, and unified workflow. It abstracts the complexities of PySpark distributed DataFrame transformations while providing astrometrically rigorous filtering criteria. The tool allows observational astronomers and data engineers to isolate dynamically coherent stellar groups from foreground and background field star noise efficiently, maintaining sub-second execution scalability on local multi-core machines and distributed Spark clusters.
-
+The Gaia DR3 archive contains high-precision astrometric and photometric parameters for over 1.8 billion celestial sources. If a researcher wants to work on a massive dataset, it will consume heavy RAM resources for data processing and filtering. There is a clear lack of tools that allow researchers to leverage data engineering and parallel processing techniques via PySpark, which offer power and speed in handling big data—unlike traditional tools such as Pandas, which become very slow and lack the ability to scale with the volume of data. Despite the availability of distributed computing power, there remains a gap for ready and open-source tools that seamlessly integrate automated data retrieval (AstroQuery), highly efficient distributed processing, and the application of spatial clustering algorithms (DBSCAN) for analyzing massive stellar fields and clusters (such as Orion and the Pleiades).Therefore, gaia\_pyspark\_pipeline was introduced as a reliable engineering solution that provides integrated distributed processing, reduces execution time, and ensures reproducible results and scalability testing, making it easier for researchers to handle Gaia’s massive datasets without the complexity of the underlying infrastructure.The Pipeline represents a PySpark distributed processing framework for astronomical data, and the Pleiades star cluster was selected as a case study and performance benchmark.
+ 
 # Pipeline Architecture & Core Modules
 
 The software architecture is divided into three modular components:
