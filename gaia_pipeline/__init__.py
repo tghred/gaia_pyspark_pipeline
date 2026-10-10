@@ -6,13 +6,16 @@ __maintainer__ = "Taghreed Salah Ashry"
 __email__ = "taghred.ashry@gmail.com"
 __license__ = "MIT"
 
-from gaia_pipeline.clustering import run_dbscan_clustering
+from gaia_pipeline.clustering import run_dbscan_clustering,plot_cluster_results
 from gaia_pipeline.fetch_data import fetch_cluster_data
-from gaia_pipeline.spark_cleaner import clean_gaia_pyspark, init_spark
+from gaia_pipeline.spark_cleaner import clean_gaia_pyspark, init_spark, plot_scaling, measure_scaling
 
 __all__ = [
     "clean_gaia_pyspark",
     "fetch_cluster_data",
     "init_spark",
+    "measure_scaling",
+    "plot_cluster_results",
+    "plot_scaling",
     "run_dbscan_clustering",
 ]
