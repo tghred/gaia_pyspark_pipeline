@@ -30,10 +30,9 @@ An end-to-end Big Data & Machine Learning pipeline designed to query, clean, and
 
 ```text
 gaia_pyspark_pipeline/
-├── config/                   # Configuration files
 ├── examples/
 │   └── run_pipeline.py       # Main execution entry point
-|    | demo_pleiades.ipynb      #demonstrates the end-to-end workflow of gaia_pyspark_pipeline 
+|   └── demo.ipynb      #demonstrates the end-to-end workflow of gaia_pyspark_pipeline 
 
 ├── gaia_pipeline/
 │   ├── __init__.py
@@ -43,13 +42,17 @@ gaia_pyspark_pipeline/
 │   └── spark_cleaner.py      # PySpark pipeline for data cleaning & benchmarking
 ├── tests/
 │   └── test_pipeline.py      # Unit tests for pipeline components
+
+├── docs/                 # Documentation files
+│   └── index.md
+
 ├── .gitattributes
 ├── LICENSE                   # Project license
 ├── paper.bib                 # Bibliography for academic paper
 ├── paper.md                  # JOSS paper manuscript
 ├── README.md                 # Project documentation
 └── requirements.txt          # Project dependencies
-
+└── CONTRIBUTING.md           # Contributing to gaia_pyspark_pipeline
 ```
 
 ---
@@ -115,7 +118,7 @@ pip install -r requirements.txt
 * **Color-Magnitude Diagram (CMD):** Confirms the identified members form a clear **Main Sequence** evolutionary track.
 * **Visual Validation:** Verified spatial distribution of Pleiades cluster members using Aladin Desktop.
 * **Performance Benchmark:** Measures PySpark data cleaning execution time across different subsample ratios.
-![Kinematic & Photometric Verification](examples/pleiades_cluster_plot.png)
+![Kinematic & Photometric Verification](images_results/pleiades_cluster_plot.png)
 
 
 ### 2. PySpark Scalability Benchmark
@@ -124,7 +127,7 @@ pip install -r requirements.txt
 
 Measures PySpark data cleaning execution time across different subsample ratios:
 
-![PySpark Execution Time Benchmark](examples/pyspark_performance.png)
+![PySpark Execution Time Benchmark](images_results/pyspark_performance.png)
 
 
 ## Visualizing Results in Aladin Desktop
@@ -134,6 +137,14 @@ Here is the processed Pleiades cluster dataset visualized over the real sky back
 
 ---
 
+## 📖 Documentation
+Detailed documentation for each component of the pipeline is available in the [docs/](docs/) directory:
+* [Fetch Data](docs/fetch_data.md) - Queries Gaia DR3 using ADQL.
+* [Spark Cleaner](docs/spark_cleaner.md) - PySpark data cleaning pipeline.
+* [Clustering](docs/clustering.md) - DBSCAN machine learning & astrophysical plots.
+* [Demo Workflow](docs/demo.md) - End-to-end execution guide.
+
+  
 ## 📝 License
 
 This project is licensed under the MIT License - see the [LICENSE](https://github.com/tghred/gaia_pyspark_pipeline/blob/main/LICENSE) file for details.
