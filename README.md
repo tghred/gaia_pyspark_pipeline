@@ -30,33 +30,34 @@ An end-to-end Big Data & Machine Learning pipeline designed to query, clean, and
 
 ```text
 gaia_pyspark_pipeline/
-├── examples/
-│   └── run_pipeline.py       # Main execution entry point
-|   └── demo.ipynb      #demonstrates the end-to-end workflow of gaia_pyspark_pipeline 
-
-├── gaia_pipeline/
-│   ├── __init__.py
-│   ├── clustering.py         # DBSCAN ML model & astrophysical plots (VPD, CMD)
-│   ├── fetch_data.py         # Queries Gaia DR3 database using ADQL
-│   ├── raw_gaia_data.parquet # Raw cached Gaia dataset
-│   └── spark_cleaner.py      # PySpark pipeline for data cleaning & benchmarking
+├── src/
+│   └── gaia_pipeline/
+│       ├── __init__.py          # ← الملف الذي تراجعينه
+│       ├── fetch_data.py
+│       ├── spark_cleaner.py
+│       ├── clustering.py
+│       └── version.py           # (اختياري) لتخزين __version__ فقط
 ├── tests/
-│   └── test_pipeline.py      # Unit tests for pipeline components
-
-├── docs/                 # Documentation files
-│   └── index.md
-
-├── .gitattributes
-├── LICENSE                   # Project license
-├── paper.bib                 # Bibliography for academic paper
-├── paper.md                  # JOSS paper manuscript
-├── README.md                 # Project documentation
-└── requirements.txt          # Project dependencies
-└── CONTRIBUTING.md           # Contributing to gaia_pyspark_pipeline
-```
-
+│   ├── __init__.py
+│   ├── test_fetch_data.py
+│   ├── test_spark_cleaner.py
+│   └── test_clustering.py
+├── examples/
+│   └── pleiades_analysis.ipynb
+├── docs/
+│   └── ...
+├── pyproject.toml               # ← هنا تُعرّف الحزمة والنسخة
+├── README.md
+├── LICENSE
+├── CONTRIBUTING.md
+├── CODE_OF_CONDUCT.md
+├── paper.md
+├── paper.bib
+└── .github/
+    └── workflows/
+        └── ci.yml
 ---
-
+```
 ## 🚀 Quick Start & Installation
 
 ### 1. Clone the Repository

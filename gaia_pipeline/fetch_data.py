@@ -1,4 +1,3 @@
-import os
 import time
 import logging
 from pathlib import Path
@@ -16,7 +15,7 @@ def fetch_cluster_data(
     dec: float,
     radius: float,
     limit: int = 50000,
-    output_path: str = "data/raw/pleiades_chunks.parquet",
+    output_path: str = "data/pleiades_chunks.parquet",
     mag_bins: Optional[list] = None,
     retries: int = 3,
     initial_delay: float = 5.0,
@@ -90,7 +89,7 @@ def fetch_cluster_data(
                 logger.error(f"  -> Unexpected error: {e}")
                 raise
 
-        time.sleep(3)  # be polite to the Gaia archive
+        time.sleep(3) 
 
     if not all_chunks:
         raise RuntimeError(

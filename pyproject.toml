@@ -1,0 +1,90 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "gaia-pyspark-pipeline"
+version = "0.1.0"
+description = "A lightweight PySpark pipeline for open cluster extraction from Gaia DR3"
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [
+    { name = "Taghreed Salah Ashry", email = "taghred.ashry@gmail.com" }
+]
+maintainers = [
+    { name = "Taghreed Salah Ashry", email = "taghred.ashry@gmail.com" }
+]
+keywords = [
+    "astronomy",
+    "gaia",
+    "pyspark",
+    "clustering",
+    "dbscan",
+    "open-clusters",
+    "astrophysics",
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Astronomy",
+    "Topic :: Scientific/Engineering :: Information Analysis",
+]
+
+dependencies = [
+    "pyspark>=3.4",
+    "astroquery>=0.4.6",
+    "astropy>=5.0",
+    "pandas>=1.5",
+    "numpy>=1.23",
+    "scikit-learn>=1.2",
+    "matplotlib>=3.6",
+    "seaborn>=0.12",
+    "pyarrow>=12.0",
+    "requests>=2.28",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0",
+    "pytest-cov>=4.0",
+    "pytest-mock>=3.10",
+    "ruff>=0.4",
+    "build>=1.0",
+    "twine>=4.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/tghred/gaia_pyspark_pipeline"
+Repository = "https://github.com/tghred/gaia_pyspark_pipeline"
+Issues = "https://github.com/tghred/gaia_pyspark_pipeline/issues"
+
+[project.scripts]
+gaia-pipeline = "gaia_pipeline.__main__:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["gaia_pipeline*"]
+exclude = ["tests*", "examples*", "docs*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = [
+    "-v",
+    "--strict-markers",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py39"
+
+[tool.ruff.lint]
+select = ["E", "W", "F", "I", "N", "UP", "B"]
+ignore = ["E501"]
