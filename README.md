@@ -4,7 +4,31 @@
 An end-to-end Big Data & Machine Learning pipeline designed to query, clean, and cluster astronomical data from the **Gaia DR3** archive using **PySpark** and **DBSCAN**. The pipeline isolates open stellar clusters (such as the Pleiades / M45) using kinematic and photometric parameters.
 
 ---
+# gaia_pyspark_pipeline
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23212068.svg)](https://doi.org/10.5281/zenodo.23212068)
+[![Release](https://img.shields.io/github/v/release/tghred/gaia_pyspark_pipeline?color=blue)](https://github.com/tghred/gaia_pyspark_pipeline/releases/tag/v1.0.1)
+
+A PySpark distributed processing framework for astronomical data reduction, cleaning, and spatial/kinematic clustering using Gaia DR3 catalog data.
+
+---
+
+## Citation
+
+If you use `gaia_pyspark_pipeline` in your research, please cite this release:
+
+```bibtex
+@software{taghred_salah_ashry_2026_23212068,
+  author       = {Taghred Salah Ashry},
+  title        = {tghred/gaia_pyspark_pipeline: v1.0.1},
+  month        = oct,
+  year         = 2026,
+  publisher    = {Zenodo},
+  version      = {v1.0.1},
+  doi          = {10.5281/zenodo.23212068},
+  url          = {[https://doi.org/10.5281/zenodo.23212068](https://doi.org/10.5281/zenodo.23212068)}
+}
+```
 ## 📌 Features
 
 - **Automated ADQL Retrieval:** Queries Gaia DR3 archive via `astroquery` for target sky coordinates and radii.
@@ -30,6 +54,7 @@ An end-to-end Big Data & Machine Learning pipeline designed to query, clean, and
 
 ```text
 gaia_pyspark_pipeline/
+<<<<<<< HEAD
 ├── src/
 │   └── gaia_pipeline/
 │       ├── __init__.py          # ← الملف الذي تراجعينه
@@ -56,6 +81,33 @@ gaia_pyspark_pipeline/
 └── .github/
     └── workflows/
         └── ci.yml
+=======
+├── examples/
+│   └── run_pipeline.py       # Main execution entry point
+|   └── demo.ipynb      #demonstrates the end-to-end workflow of gaia_pyspark_pipeline 
+
+├── gaia_pipeline/
+│   ├── __init__.py
+│   ├── clustering.py         # DBSCAN ML model & astrophysical plots (VPD, CMD)
+│   ├── fetch_data.py         # Queries Gaia DR3 database using ADQL
+│   ├── raw_gaia_data.parquet # Raw cached Gaia dataset
+│   └── spark_cleaner.py      # PySpark pipeline for data cleaning & benchmarking
+├── tests/
+│   └── test_pipeline.py      # Unit tests for pipeline components
+
+├── docs/                 # Documentation files
+│   └── index.md
+
+├── .gitattributes
+├── LICENSE                   # Project license
+├── paper.bib                 # Bibliography for academic paper
+├── paper.md                  # JOSS paper manuscript
+├── README.md                 # Project documentation
+└── requirements.txt          # Project dependencies
+└── CONTRIBUTING.md           # Contributing to gaia_pyspark_pipeline
+```
+
+>>>>>>> a7f5c2ae0adf702041b7198654803cd151ff2efb
 ---
 ```
 ## 🚀 Quick Start & Installation

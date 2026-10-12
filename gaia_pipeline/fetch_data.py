@@ -15,7 +15,7 @@ def fetch_cluster_data(
     dec: float,
     radius: float,
     limit: int = 50000,
-    output_path: str = "data/pleiades_chunks.parquet",
+    output_path: str = "data/orion_chunks.parquet",
     mag_bins: Optional[list] = None,
     retries: int = 3,
     initial_delay: float = 5.0,
@@ -52,7 +52,7 @@ def fetch_cluster_data(
         If no data could be fetched.
     """
     if mag_bins is None:
-        mag_bins = [(10.0, 16.0), (16.0, 18.0), (18.0, 20.0)]
+        mag_bins = [(10.0, 16.0), (16.0,18.0), (18.0, 20.0)]
 
     all_chunks = []
 

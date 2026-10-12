@@ -20,12 +20,12 @@ from gaia_pipeline.spark_cleaner import (
 logger = logging.getLogger(__name__)
 
 # --- Configuration ---
-RA_TARGET = 56.75
-DEC_TARGET = 24.11
-RADIUS_TARGET = 1.0
-INPUT_PARQUET = Path("pleiades_chunks.parquet")
-PERFORMANCE_PLOT = "pyspark_performance.png"
-CLUSTER_PLOT = "pleiades_clusters.png"
+RA_TARGET = 83.75      
+DEC_TARGET = -5.48     
+RADIUS_TARGET = 1.0  
+INPUT_PARQUET = Path("orion_chunks.parquet")
+PERFORMANCE_PLOT = "pyspark_performance_orion.png"
+CLUSTER_PLOT = "orion_clusters.png"
 
 
 def main() -> int:
