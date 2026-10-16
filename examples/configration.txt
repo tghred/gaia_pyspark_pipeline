@@ -1,0 +1,20 @@
+# --- Configuration ---
+RA_TARGET = 130.10       #(Praesepe / NGC 2632)
+DEC_TARGET = 19.67      
+RADIUS_TARGET = 2.5     
+
+
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+# --- Configuration ---
+RA_TARGET = 83.75      # إحداثيات عنقود الجبار (ONC)
+DEC_TARGET = -5.48     
+RADIUS_TARGET = 2.5    
+
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+RA_TARGET = 56.75
+DEC_TARGET = 24.11
+RADIUS_TARGET = 3.0  #pleiades
